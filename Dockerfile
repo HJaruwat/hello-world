@@ -1,2 +1,3 @@
 FROM golang:1.8
 
+EXPOSE 90
