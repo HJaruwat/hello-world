@@ -1,3 +1,11 @@
-FROM golang:1.8
+FROM golang
 
-EXPOSE 90
+COPY ./ /go/src/app
+
+WORKDIR /go/src/app
+
+RUN go build -o app
+
+EXPOSE 80
+
+ENTRYPOINT [ "./app" ]
