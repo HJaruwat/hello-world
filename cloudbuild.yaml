@@ -8,3 +8,4 @@ steps:
   env:
   - 'CLOUDSDK_COMPUTE_ZONE=asia-southeast1-c'
   - 'CLOUDSDK_CONTAINER_CLUSTER=standard-cluster-1'
+  - 'IMAGE=gcr.io/$PROJECT_ID/$REPO_NAME:$TAG_NAME'
