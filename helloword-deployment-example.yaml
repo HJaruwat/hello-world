@@ -19,7 +19,7 @@ spec:
     spec:
       containers:
       - name: hello-word-example
-        image: hjaruwat/helloword:k8s
+        image: gcr.io/[PROJECT_ID]/[REPO_NAME]:[TAG_NAME]
         resources:
           requests:
             cpu: 100m
