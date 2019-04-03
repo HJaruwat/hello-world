@@ -8,7 +8,8 @@ steps:
   - upgrade
   - --install
   - hello-world
-  - --namespace dev
+  - --namespace
+  - dev
   - dev/
   - --set=image.repository=gcr.io/$PROJECT_ID/$REPO_NAME
   - --set=image.tag=$TAG_NAME
