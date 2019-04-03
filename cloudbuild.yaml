@@ -12,3 +12,5 @@ steps:
   env:
   - 'CLOUDSDK_COMPUTE_ZONE=asia-southeast1-c'
   - 'CLOUDSDK_CONTAINER_CLUSTER=standard-cluster-1'
+  - 'TILLERLESS=true'
+  - 'TILLER_NAMESPACE=develop'
