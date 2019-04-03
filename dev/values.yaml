@@ -9,8 +9,8 @@ image:
   tag: stable
   pullPolicy: IfNotPresent
 
-nameOverride: "hello-example"
-fullnameOverride: "hello-example"
+nameOverride: "hello-example-1"
+fullnameOverride: "hello-example-1"
 
 service:
   type: LoadBalancer
