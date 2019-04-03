@@ -9,10 +9,10 @@ steps:
   - 'CLOUDSDK_COMPUTE_ZONE=asia-southeast1-c'
   - 'CLOUDSDK_CONTAINER_CLUSTER=standard-cluster-1'
 - name: 'gcr.io/cloud-builders/kubectl'
-  agrs:
+  args:
   - set
   - image
-  - deployment 
+  - deployment
   - hello-word-example=gcr.io/$PROJECT_ID/$REPO_NAME:$TAG_NAME
   env:
   - 'CLOUDSDK_COMPUTE_ZONE=asia-southeast1-c'
