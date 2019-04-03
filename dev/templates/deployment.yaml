@@ -27,6 +27,17 @@ spec:
             - name: http
               containerPort: 80
               protocol: TCP
+          env:
+            - name: "AUTH_TOKEN"
+              valueFrom:
+                secretKeyRef:
+                  name: dev-secret
+                  key: webhook_token
+            - name: "SLACK_TOKEN"
+              valueFrom:
+                secretKeyRef:
+                  name: dev-secret
+                  key: slack_token
           livenessProbe:
             httpGet:
               path: /

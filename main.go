@@ -5,15 +5,17 @@ import (
 	"fmt"
 	"math/rand"
 	"net/http"
+	"os"
 	"time"
 )
 
 //Response format.
 type Response struct {
-	TrackingCode string   `json:"tracking_code"`
-	Status       string   `json:"status"`
-	Message      string   `json:"message"`
-	Data         struct{} `json:"data"`
+	TrackingCode string      `json:"tracking_code"`
+	Status       string      `json:"status"`
+	Message      string      `json:"message"`
+	Env          string      `json:"env"`
+	Data         interface{} `json:"data"`
 }
 
 var pool = "abcdefgthgklmnopqrstuvxyz1234567890"
@@ -34,6 +36,7 @@ func main() {
 			TrackingCode: randomString(16),
 			Status:       `success`,
 			Message:      `Test k8s with golang resposne json.`,
+			Env:          os.Getenv("SLACK_TOKEN"),
 		}
 		bytes, _ := json.Marshal(resp)
 		w.Write(bytes)
