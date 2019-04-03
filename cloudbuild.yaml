@@ -7,7 +7,7 @@ steps:
   args:
   - upgrade
   - --install
-  - --name=$REPO_NAME
+  - $REPO_NAME
   - dev/
   env:
   - 'CLOUDSDK_COMPUTE_ZONE=asia-southeast1-c'
