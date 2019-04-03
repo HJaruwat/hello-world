@@ -1,0 +1,47 @@
+apiVersion: apps/v1 # for versions before 1.9.0 use apps/v1beta2
+kind: Deployment
+metadata:
+  name: frontend
+  labels:
+    app: hello-word-example
+    environment : "dev"
+spec:
+  selector:
+    matchLabels:
+      app: hello-word-example
+      environment : "dev"
+  replicas: 3
+  template:
+    metadata:
+      labels:
+        app: hello-word-example
+        environment : "dev"
+    spec:
+      containers:
+      - name: hello-word-example
+        image: hjaruwat/helloword:k8s
+        resources:
+          requests:
+            cpu: 100m
+            memory: 100Mi
+        ports:
+        - containerPort: 80
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: frontend
+  labels:
+    app: hello-word-example
+    environment : "dev"
+spec:
+  # comment or delete the following line if you want to use a LoadBalancer
+  type: LoadBalancer 
+  # if your cluster supports it, uncomment the following to automatically create
+  # an external load-balanced IP for the frontend service.
+  # type: LoadBalancer
+  ports:
+  - port: 80
+  selector:
+    app: hello-word-example
+    environment : "dev"
