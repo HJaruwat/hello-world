@@ -9,6 +9,9 @@ steps:
   - --install
   - hello-world
   - dev/
+  - --set=image=gcr.io/$PROJECT_ID/$REPO_NAME
+  - --set=image.tag=$TAG_NAME
+  
   env:
   - 'CLOUDSDK_COMPUTE_ZONE=asia-southeast1-c'
   - 'CLOUDSDK_CONTAINER_CLUSTER=standard-cluster-1'
