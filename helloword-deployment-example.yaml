@@ -19,7 +19,7 @@ spec:
     spec:
       containers:
       - name: hello-word-example
-        image: ${IMAGE}
+        image: 
         resources:
           requests:
             cpu: 100m
