@@ -19,7 +19,7 @@ spec:
     spec:
       containers:
       - name: hello-word-example
-        image: gcr.io/$PROJECT_ID/$REPO_NAME:$TAG_NAME
+        image: gcr.io/crazy-sprout/github_hjaruwat_hello-world@sha256:78323702640a5ce07dd5b159ab08464c01e2d0b966c4aa5de09c29816c51fd56
         resources:
           requests:
             cpu: 100m
