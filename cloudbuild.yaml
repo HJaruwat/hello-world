@@ -9,7 +9,7 @@ steps:
   - --install
   - hello-world
   - dev/
-  - --set=image.name=gcr.io/$PROJECT_ID/$REPO_NAME
+  - --set=image.repository=gcr.io/$PROJECT_ID/$REPO_NAME
   - --set=image.tag=$TAG_NAME
   
   env:
