@@ -15,7 +15,7 @@ steps:
   args:
   - upgrade
   - --install
-  - dev-env-hello
+  - dev-env-hello-1
   - --namespace
   - default
   - dev/

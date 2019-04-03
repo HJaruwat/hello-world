@@ -14,7 +14,7 @@ fullnameOverride: "hello-example"
 
 service:
   type: LoadBalancer
-  port: 90
+  port: 80
 
 ingress:
   enabled: false
