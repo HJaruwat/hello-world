@@ -9,13 +9,13 @@ steps:
   args: ['apply','-f','dev/secrets.yaml']
   env:
   - 'CLOUDSDK_COMPUTE_ZONE=asia-southeast1-c'
-  - 'CLOUDSDK_CONTAINER_CLUSTER=standard-cluster-2'
+  - 'CLOUDSDK_CONTAINER_CLUSTER=standard-cluster-5'
 
 - name: 'gcr.io/cloud-builders/kubectl'
   args: ['apply','-f','helloword-deployment-example.yaml','-n','dev']
   env:
   - 'CLOUDSDK_COMPUTE_ZONE=asia-southeast1-c'
-  - 'CLOUDSDK_CONTAINER_CLUSTER=standard-cluster-2'
+  - 'CLOUDSDK_CONTAINER_CLUSTER=standard-cluster-5'
 
 - name: 'gcr.io/cloud-builders/kubectl'
   args:
@@ -28,4 +28,4 @@ steps:
   - hello-world=gcr.io/$PROJECT_ID/$REPO_NAME:$TAG_NAME
   env:
   - 'CLOUDSDK_COMPUTE_ZONE=asia-southeast1-c'
-  - 'CLOUDSDK_CONTAINER_CLUSTER=standard-cluster-2'
+  - 'CLOUDSDK_CONTAINER_CLUSTER=standard-cluster-5'
