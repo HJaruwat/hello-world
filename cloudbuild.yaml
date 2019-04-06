@@ -22,4 +22,4 @@ steps:
   - hello-world=gcr.io/$PROJECT_ID/$REPO_NAME:$TAG_NAME
   env:
   - 'CLOUDSDK_COMPUTE_ZONE=asia-southeast1-c'
-  - 'CLOUDSDK_CONTAINER_CLUSTER=standard-cluster-5'
+  - 'CLOUDSDK_CONTAINER_CLUSTER=k8s-sample'
