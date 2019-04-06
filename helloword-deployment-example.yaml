@@ -1,44 +1,34 @@
-apiVersion: apps/v1 # for versions before 1.9.0 use apps/v1beta2
-namespace: development
+apiVersion: apps/v1
 kind: Deployment
 metadata:
-  name: frontend
   labels:
-    app: hello-word-example
+    app: hello-world
+  name: hello-world
 spec:
+  replicas: 1
   selector:
     matchLabels:
-      app: hello-word-example
-  replicas: 3
+      app: hello-world
   template:
     metadata:
       labels:
-        app: hello-word-example
+        app: hello-world
+        version: v1
     spec:
       containers:
-      - name: hello-word-example
-        image: gcr.io/crazy-sprout/github_hjaruwat_hello-world:v1.0
-        resources:
-          requests:
-            cpu: 100m
-            memory: 100Mi
+      - name: hello-world
+        image: rabbitmq:3.7.14-management-alpine
         ports:
         - containerPort: 80
 ---
 apiVersion: v1
 kind: Service
 metadata:
-  name: frontend
-  labels:
-    app: hello-word-example
-    environment : "dev"
+  name: hello-world
 spec:
-  # comment or delete the following line if you want to use a LoadBalancer
-  type: LoadBalancer 
-  # if your cluster supports it, uncomment the following to automatically create
-  # an external load-balanced IP for the frontend service.
-  # type: LoadBalancer
+  type: LoadBalancer
   ports:
-  - port: 80
+  - port: 8000
+    targetPort: 80
   selector:
-    app: hello-word-example
+    app: hello-world
