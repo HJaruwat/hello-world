@@ -9,20 +9,23 @@ steps:
   args: ['apply','-f','dev/secrets.yaml']
   env:
   - 'CLOUDSDK_COMPUTE_ZONE=asia-southeast1-c'
-  - 'CLOUDSDK_CONTAINER_CLUSTER=standard-cluster-1'
+  - 'CLOUDSDK_CONTAINER_CLUSTER=standard-cluster-2'
 
-- name: 'gcr.io/crazy-sprout/helm'
-  args:
-  - upgrade
-  - --install
-  - dev-env-hello-1
-  - --namespace
-  - default
-  - dev/
-  - --set=image.repository=gcr.io/$PROJECT_ID/$REPO_NAME
-  - --set=image.tag=$TAG_NAME
+- name: 'gcr.io/cloud-builders/kubectl'
+  args: ['apply','-f','helloword-deployment-example.yaml']
   env:
   - 'CLOUDSDK_COMPUTE_ZONE=asia-southeast1-c'
-  - 'CLOUDSDK_CONTAINER_CLUSTER=standard-cluster-1'
-  - 'TILLERLESS=true'
-  - 'TILLER_NAMESPACE=develop'
+  - 'CLOUDSDK_CONTAINER_CLUSTER=standard-cluster-2'
+
+- name: 'gcr.io/cloud-builders/kubectl'
+  args:
+  - set
+  - image
+  - deployment
+  - -n
+  - dev
+  - hello-word-example
+  - hello-word-example=gcr.io/$PROJECT_ID/$REPO_NAME:$TAG_NAME
+  env:
+  - 'CLOUDSDK_COMPUTE_ZONE=asia-southeast1-c'
+  - 'CLOUDSDK_CONTAINER_CLUSTER=standard-cluster-2'

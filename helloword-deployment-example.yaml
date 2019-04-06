@@ -5,18 +5,15 @@ metadata:
   name: frontend
   labels:
     app: hello-word-example
-    environment : "dev"
 spec:
   selector:
     matchLabels:
       app: hello-word-example
-      environment : "dev"
   replicas: 3
   template:
     metadata:
       labels:
         app: hello-word-example
-        environment : "dev"
     spec:
       containers:
       - name: hello-word-example
@@ -45,4 +42,3 @@ spec:
   - port: 80
   selector:
     app: hello-word-example
-    environment : "dev"
